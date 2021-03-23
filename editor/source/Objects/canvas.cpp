@@ -31,6 +31,6 @@ void Canvas::currentLayer(int _index, Brush& brush)
 {
     
     index = _index;
-    brush.setLayer(&layers[index].getPixels());
+    brush.setLayer(&layers[index]);
     
 }

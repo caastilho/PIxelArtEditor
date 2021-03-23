@@ -22,9 +22,8 @@ struct Layer
         Layer(int width, int height, sf::Color background);
         
         
-        // Return layer content
-        sf::Image& getPixels();
-        
+        // Edit layer pixel content
+        void setPixel(int x, int y, sf::Color color);
         
         // Display layer content
         void display(sf::RenderWindow* renderer);

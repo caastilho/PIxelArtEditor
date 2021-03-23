@@ -12,10 +12,10 @@ void Brush::setBrushColor(sf::Color color)
 
 
 // Set layer content
-void Brush::setLayer(sf::Image* _pixels)
+void Brush::setLayer(Layer* _layer)
 {
 
-    pixels = _pixels;
+    layer = _layer;
     
 }
 
@@ -23,10 +23,18 @@ void Brush::setLayer(sf::Image* _pixels)
 void Brush::editLayer(bool isFocused, sf::RenderWindow* renderer)
 {
     
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && isFocused && state == 2)
+    // Erase brush selected
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && isFocused && state != 0)
     {
         sf::Vector2f position = renderer->mapPixelToCoords(sf::Mouse::getPosition(*renderer));
-        pixels->setPixel(position.x, position.y, brushColor);
+        layer->setPixel(position.x, position.y, sf::Color(0, 0, 0, 0));
+    }
+    
+    // Pen brush selected
+    else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && isFocused && state == 2)
+    {
+        sf::Vector2f position = renderer->mapPixelToCoords(sf::Mouse::getPosition(*renderer));
+        layer->setPixel(position.x, position.y, brushColor);
     }
     
 }

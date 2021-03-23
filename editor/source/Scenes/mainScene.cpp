@@ -10,7 +10,7 @@ void MainScene::setup(sf::RenderWindow* _renderer, AssetsManager manager)
     sf::Vector2u size = renderer->getSize();
 
     // Setup background color
-    background = sf::Color(90, 90, 90);
+    background = sf::Color(40, 40, 45);
     
 
     // Setup brush object
@@ -52,7 +52,7 @@ void MainScene::events(sf::Event& action)
     
     // Translate camera view
     if (brush.isMovable())
-        drawingCamera.translate(action, renderer, -1.5);
+        drawingCamera.translate(action, renderer, -0.19);
     
     // Zoom camera view
     drawingCamera.zoom(action, 0.1);

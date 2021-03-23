@@ -25,10 +25,11 @@ Layer::Layer(int _width, int _height, sf::Color background)
 }
 
 
-// Return layer content
-sf::Image& Layer::getPixels()
+// Edit layer pixel content
+void Layer::setPixel(int x, int y, sf::Color color)
 {
-    return pixels;
+    if (0 <= x && x < width && 0 <= y && y < height)
+        pixels.setPixel(x, y, color);
 }
 
 

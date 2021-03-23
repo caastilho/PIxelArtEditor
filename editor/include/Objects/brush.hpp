@@ -4,10 +4,10 @@
 
 
 /* Brush types:
-    0 -> "Normal"  translate camera
-    1 -> "Eraser"  delete layer content
-    1 -> "Pen"     simple square brush
-    2 -> "Pencil"  simple circle shape brush
+    Right mouse button -> "Eraser"       delete layer content
+    0                  -> "Normal"           translate camera
+    2                  -> "Pen"           simple square brush
+    3                  -> "Pencil"  simple circle shape brush
 */
 
 class Brush
@@ -16,13 +16,12 @@ class Brush
     private:
         
         // Brush configuration
-        int state = 2;
+        int state = 0;
         int brushSize = 1;
         sf::Color brushColor;
         
         // Current layer content
-        sf::Image *pixels;
-        
+        Layer* layer;
         
     
     public:
@@ -36,7 +35,7 @@ class Brush
         
         
         // Set layer content
-        void setLayer(sf::Image* pixels);
+        void setLayer(Layer* layer);
         
         // Edit layer content
         void editLayer(bool isFocused, sf::RenderWindow* renderer);

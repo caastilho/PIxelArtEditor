@@ -43,7 +43,6 @@ void Camera::translate(sf::Event& action, sf::RenderWindow* renderer, float fact
     // Update camera translation
     if (action.type == sf::Event::MouseMoved && mouseState)
     {   
-        
         sf::Vector2i world = sf::Vector2i(action.mouseMove.x, action.mouseMove.y);
         sf::Vector2f delta = sf::Vector2f(lastMousePosition - world);
         view.move(delta * zoomValue * factor);
